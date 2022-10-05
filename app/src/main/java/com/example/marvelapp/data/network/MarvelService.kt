@@ -8,8 +8,15 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MarvelService {
-    @GET("v1/public/characters")
-    fun getMarvel(
+    @GET("characters")
+    fun getCharacters(
+        @Query("apikey")apikey:String = Constants.API_KEY,
+        @Query("ts")ts:String = Constants.timeStamp,
+        @Query("hash")hash:String = Constants.hash(),
+    ): Single<Response<MarvelResponse>>
+
+    @GET("stories")
+    fun getStories(
         @Query("apikey")apikey:String = Constants.API_KEY,
         @Query("ts")ts:String = Constants.timeStamp,
         @Query("hash")hash:String = Constants.hash(),

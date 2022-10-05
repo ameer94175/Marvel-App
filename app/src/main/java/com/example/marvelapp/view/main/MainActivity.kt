@@ -1,8 +1,9 @@
-package com.example.marvelapp
+package com.example.marvelapp.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.example.marvelapp.R
 import com.example.marvelapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -11,5 +12,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.lifecycleOwner = this    }
+        binding.lifecycleOwner = this
+    }
 }

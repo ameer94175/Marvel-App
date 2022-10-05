@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName
 
 data class Result(
     @SerializedName("comics")
-    val comics: Comics? = Comics(),
+    val comics: Comics?,
     @SerializedName("description")
     val description: String? = "",
     @SerializedName("events")
-    val events: Events? = Events(),
+    val events: Events? ,
     @SerializedName("id")
     val id: Int? = 0,
     @SerializedName("modified")

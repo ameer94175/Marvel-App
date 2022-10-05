@@ -8,16 +8,21 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.Response
 
 class MarvelRepository {
-    fun getMarvel(): Single<State<MarvelResponse?>> {
-        return wrapResponse(API.apiService::getMarvel)
+    fun getCharacters(): Single<State<MarvelResponse?>> {
+        return wrapResponse(API.apiService::getCharacters)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 
 
+    fun getStories(): Single<State<MarvelResponse?>> {
+        return wrapResponse(API.apiService::getStories)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
     fun <T> wrapResponse(response: () -> Single<Response<T>>): Single<State<T?>> {
         return response().map {
-//            State.Loading
             if (it.isSuccessful) {
                 State.Success(it.body())
             } else {

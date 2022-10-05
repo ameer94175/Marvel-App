@@ -5,7 +5,7 @@ import java.security.MessageDigest
 import java.sql.Timestamp
 
 object Constants {
-     val BASE_URL = "https://gateway.marvel.com/"
+     val BASE_URL = "https://gateway.marvel.com/v1/public/"
 
     val timeStamp = Timestamp(System.currentTimeMillis()).time.toString()
 

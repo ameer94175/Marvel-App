@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelapp.BR
 
 interface BaseInteractionListener
-abstract class BaseAdapter<T>(private var items:List<T>, private val listener: BaseInteractionListener)
+abstract class BaseAdapter<T>(private var items:List<T>?, private val listener: BaseInteractionListener)
     : RecyclerView.Adapter<BaseAdapter.BaseViewHolder>(){
 
     abstract val layoutId: Int
@@ -18,13 +18,14 @@ abstract class BaseAdapter<T>(private var items:List<T>, private val listener: B
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        val currentItem = items[position]
+        val currentItem = items?.get(position)
         when(holder){
             is ItemViewHolder -> {
 
-                holder.binding.setVariable(BR.item,currentItem)
-                    holder.binding.setVariable(BR.listener,listener)
-
+                holder.binding.apply {
+                    setVariable(BR.item,currentItem)
+                    setVariable(BR.listener,listener)
+                }
 
             }
         }
@@ -37,7 +38,7 @@ abstract class BaseAdapter<T>(private var items:List<T>, private val listener: B
 
     fun getItems()= items
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = items?.size!!
 
     class ItemViewHolder(val binding: ViewDataBinding): BaseViewHolder(binding)
 

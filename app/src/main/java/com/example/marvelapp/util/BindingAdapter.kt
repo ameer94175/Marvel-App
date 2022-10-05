@@ -1,11 +1,14 @@
 package com.example.marvelapp.util
 
 import android.view.View
+import android.widget.Adapter
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.marvelapp.R
 import com.example.marvelapp.base.BaseAdapter
+import com.example.marvelapp.data.marvelresponse.ItemXXX
 import com.example.marvelapp.data.marvelresponse.Thumbnail
 
 @BindingAdapter(value = ["app:showWHenLoading"])
@@ -35,21 +38,33 @@ fun <T>showWhenSuccess(view: View, state: State<T>?) {
         view.visibility = View.GONE
     }
 }
-@BindingAdapter(value = ["app:imageUrl"])
-fun imageUrl(view:ImageView,url: Thumbnail?){
+@BindingAdapter(value = ["app:urlImageMarvel"])
+fun urlImageMarvel(view:ImageView,url: Thumbnail?){
+    Glide.with(view)
+        .load("${url?.path}.${url?.extension}")
+        .centerCrop()
+        .into(view)
+}
 
-    url?.let {
-        Glide.with(view).load("${url.path}.${url.extension}").centerCrop().into(view)
-    }
+@BindingAdapter(value = ["app:urlImageStories"])
+fun urlImageStories(view:ImageView,url: ItemXXX?){
+    Glide.with(view)
+        .load("${url?.resourceURI}")
+        .centerCrop()
+        .into(view)
 }
 
 @BindingAdapter(value = ["app:itemMarvel"])
-fun <T> itemMarvel(view: RecyclerView, items: List<T>?){
-    if (items != null){
+fun <T> itemMarvel(view: RecyclerView, items: List<T>?) {
+    if (items != null) {
         (view.adapter as BaseAdapter<T>?)?.setItems(items)
-    }else {
+    } else {
         (view.adapter as BaseAdapter<T>?)?.setItems(emptyList())
     }
 }
+
+
+
+
 
 

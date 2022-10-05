@@ -10,7 +10,8 @@
 
         <variable
             name="listener"
-            type="com.example.marvelapp.adapter.MarvelInteractionListener" />
+            type="com.example.marvelapp.view.homefragment.MarvelInteractionListener" />
+
     </data>
 
 <androidx.cardview.widget.CardView
@@ -25,13 +26,23 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/image_marvel"
             android:layout_width="match_parent"
             android:layout_height="196dp"
-            app:imageUrl="@{item.thumbnail}"
+            app:urlImageMarvel="@{item.thumbnail}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
+        <TextView
+            android:id="@+id/name_marvel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.name}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/image_marvel"
+            app:layout_constraintEnd_toEndOf="@id/image_marvel"
+            app:layout_constraintTop_toBottomOf="@id/image_marvel"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
