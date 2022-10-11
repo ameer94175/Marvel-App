@@ -10,7 +10,7 @@
 
         <variable
             name="listener"
-            type="com.example.marvelapp.view.homefragment.MarvelInteractionListener" />
+            type="com.example.marvelapp.view.character.MarvelInteractionListener" />
 
     </data>
 

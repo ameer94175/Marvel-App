@@ -1,4 +1,4 @@
-package com.example.marvelapp.view.homefragment
+package com.example.marvelapp.view.character
 
 
 
@@ -8,7 +8,8 @@ import com.example.marvelapp.data.marvelresponse.Result
 import com.example.marvelapp.R
 
 
-class CharactersAdapter(item:List<Result>, listener: MarvelInteractionListener): BaseAdapter<Result>(item,listener) {
+class CharactersAdapter(item:List<Result>, listener: MarvelInteractionListener):
+    BaseAdapter<Result>(item,listener) {
     override val layoutId: Int = R.layout.item_characters
 }
 

@@ -9,19 +9,24 @@ import retrofit2.Response
 
 class MarvelRepository {
     fun getCharacters(): Single<State<MarvelResponse?>> {
-        return wrapResponse(API.apiService::getCharacters)
+        return wrapWithState(API.apiService::getCharacters)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 
+    fun getCharacterById(characterId: Int): Single<State<MarvelResponse?>>{
+        return wrapWithState { API.apiService.getCharacterById(characterId) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
 
     fun getStories(): Single<State<MarvelResponse?>> {
-        return wrapResponse(API.apiService::getStories)
+        return wrapWithState(API.apiService::getStories)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun <T> wrapResponse(response: () -> Single<Response<T>>): Single<State<T?>> {
+    fun <T> wrapWithState(response: () -> Single<Response<T>>): Single<State<T?>> {
         return response().map {
             if (it.isSuccessful) {
                 State.Success(it.body())
@@ -30,4 +35,11 @@ class MarvelRepository {
             }
         }
     }
+
+
+//    private fun <T> wrapWithState(response: Single<Response<T>>): Single<State<T?>> {
+//        return response.map {
+//            if (it.isSuccessful) State.Success(it.body()) else State.Error(it.message())
+//        }
+//    }
     }

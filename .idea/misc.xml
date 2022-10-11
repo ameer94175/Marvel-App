@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/MarvelApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/MarvelApp/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/MarvelApp/app/src/main/res/layout/fragment_item_character.xml" value="0.20416666666666666" />
+        <entry key="..\:/MarvelApp/app/src/main/res/layout/item_character_detail.xml" value="0.1" />
         <entry key="..\:/MarvelApp/app/src/main/res/layout/item_characters.xml" value="0.1" />
         <entry key="..\:/MarvelApp/app/src/main/res/layout/item_marvel.xml" value="0.1" />
         <entry key="..\:/MarvelApp/app/src/main/res/layout/item_stories.xml" value="0.203125" />

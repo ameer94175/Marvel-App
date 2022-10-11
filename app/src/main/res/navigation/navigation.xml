@@ -9,5 +9,20 @@
         android:id="@+id/homeFragment"
         android:name="com.example.marvelapp.view.homefragment.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_itemCharacterDetail"
+            app:destination="@id/itemCharacterDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemCharacterDetail"
+        android:name="com.example.marvelapp.view.itemcharacterdetail.ItemCharacterDetailFragment"
+        android:label="ItemCharacterDetail"
+        tools:layout="@layout/item_character_detail">
+
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

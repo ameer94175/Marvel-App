@@ -10,7 +10,8 @@
 
         <variable
             name="listener"
-            type="com.example.marvelapp.view.homefragment.MarvelInteractionListener" />
+            type="com.example.marvelapp.view.character.MarvelInteractionListener" />
+
 
     </data>
 
@@ -19,7 +20,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardElevation="8dp"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="8dp"
+    android:onClick="@{() -> listener.onClickCharacters(item)}"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

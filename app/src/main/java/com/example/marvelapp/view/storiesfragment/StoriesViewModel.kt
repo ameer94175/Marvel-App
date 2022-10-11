@@ -6,7 +6,7 @@ import com.example.marvelapp.data.marvelresponse.MarvelResponse
 import com.example.marvelapp.data.marvelresponse.Result
 import com.example.marvelapp.data.network.MarvelRepository
 import com.example.marvelapp.util.State
-import com.example.marvelapp.view.homefragment.MarvelInteractionListener
+import com.example.marvelapp.view.character.MarvelInteractionListener
 
 class StoriesViewModel: ViewModel(), MarvelInteractionListener {
 
